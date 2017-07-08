@@ -1,0 +1,22 @@
+//- layout/main-layout.pug
+extends layout/main-layout.pug
+block title
+    title Art of cakes
+block link-css
+    link(rel="stylesheet" type="text/css" href="css/main.css")
+
+block content
+    body
+
+        include templates/header/header.pug
+        include templates/cakes/cakes.pug
+        include templates/dishes/dishes.pug
+        include templates/menu/menu.pug
+
+                    
+
+
+
+
+
+    script(src="/js/main.js")
