@@ -1,27 +1,56 @@
 /* rc- remember-color */
 
+body {
+    background: linear-gradient(to bottom, #FEFEFE 0%, #FFF8AD 100%);
+}
+
 .rc-container {
     width: 80%;
-    margin: 0 auto;
+    margin: 70px auto;
 
     .rc-row {
         display: flex;
         justify-content: space-between;
-        margin-bottom: 70px;
+        background-color: #fff;
+        margin-bottom: 50px;
+        padding: 20px;
+        border: 2px solid #666;
+        border-radius: 20px;
 
         &.rc-row__question {
-            padding: 20px;
-            border: 2px solid #666;
-            &.rc-row__question--hide {
-                background-color: #666;
-                height: 70px;
+            position: relative;
+            overflow: hidden;
 
-                .rc-color {
-                    display: none;
+            .rc-row__question--hide {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                box-shadow: 3px 4px 0px 0px #899599;
+                background: linear-gradient(to bottom, #ededed 5%, #d6bcd6 100%);
+                transition: top .2s;
+            }
+
+            &.rc-row__question--active {
+
+                .rc-row__question--hide {
+                    top: -105%;
                 }
             }
         }
+        .select-colors {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 15px;
 
+            .rc-color {
+                width: 30px;
+                height: 30px;
+                margin-bottom: 10px;
+                margin-right: 10px;
+            }
+        }
         &.rc-row__answer {
             padding: 20px;
             border: 2px solid #666;
@@ -31,7 +60,7 @@
             height: 70px;
             margin-right: 20px;
             border-radius: 50%;
-            box-shadow: inset rgba(255,255,255,0.2) 8px  8px 18px 5px,
+            box-shadow: inset rgba(255, 255, 255, 0.2) 8px 8px 18px 5px,
             inset rgba(0,0,0,0.5) -8px -8px 18px 5px;
 
             &:last-child {
@@ -40,13 +69,9 @@
         }
 
         .rc-empty {
-            background: repeating-linear-gradient(
-                            -45deg,
-                            #B5B5B5,
-                            #B5B5B5 10px,
-                            #fff 10px,
-                            #fff 20px
-            );
+            position: relative;
+            background: repeating-linear-gradient(-45deg, #B5B5B5, #B5B5B5 10px,
+                    #fff 10px, #fff 20px);
         }
         .rc-color-1 {
             background-color: $color-blue-light;
@@ -108,6 +133,13 @@
         .rc-color-20 {
             background-color: $color-black;
         }
+        .select-colors {
+            position: absolute;
+            bottom: -100px;
+            background-color: orangered;
+            width: 300px;
+            height: 100px;
+        }
     }
 }
 
@@ -115,35 +147,49 @@
     text-align: center;
     font-style: italic;
     font-size: 72px;
-    margin-bottom: 70px;
+    margin-bottom: 50px;
 }
 
 .rc-start {
     text-align: center;
-    margin-bottom: 70px;
+    margin-bottom: 50px;
 
-    .start-btn {
+    .rc-start-btn {
         outline-width: 0;
-        box-shadow:inset 0px 1px 0px 0px #bee2f9;
-        background:linear-gradient(to bottom, #63b8ee 5%, #468ccf 100%);
+        box-shadow: inset 0px 1px 0px 0px #bee2f9;
+        background: linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
         border-radius: 12px;
-        border:1px solid #3866a3;
-        display:inline-block;
-        cursor:pointer;
-        color:#14396a;
-        font-family:Arial;
+        border: 1px solid #ffaa22;
+        display: inline-block;
+        cursor: pointer;
+        color: #333;
+        font-family: Arial;
         font-size: 24px;
-        font-weight:bold;
-        padding:20px 34px;
-        text-decoration:none;
-        text-shadow:0px 1px 0px #7cacde;
-    }
-    .start-btn:hover {
-        background: linear-gradient(to bottom, #468ccf 5%, #63b8ee 100%);
-    }
-    .start-btn:active {
-        position:relative;
-        top:1px;
+        font-weight: bold;
+        padding: 20px 34px;
+        text-decoration: none;
+        text-shadow: 0px 1px 0px #ffee66;
+
+        &:hover {
+            background: linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
+        }
+        &:active {
+            position: relative;
+            top: 1px;
+        }
     }
 
+    .rc-start-btn--disabled {
+        color: #aeaeae;
+        text-shadow: none;
+        background: #dedede;
+        border: 1px solid #bbb;
+
+        &:hover {
+            background: #dedede;
+        }
+        &:active {
+            top: 0
+        }
+    }
 }
