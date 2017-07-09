@@ -1,0 +1,149 @@
+/* rc- remember-color */
+
+.rc-container {
+    width: 80%;
+    margin: 0 auto;
+
+    .rc-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 70px;
+
+        &.rc-row__question {
+            padding: 20px;
+            border: 2px solid #666;
+            &.rc-row__question--hide {
+                background-color: #666;
+                height: 70px;
+
+                .rc-color {
+                    display: none;
+                }
+            }
+        }
+
+        &.rc-row__answer {
+            padding: 20px;
+            border: 2px solid #666;
+        }
+        .rc-color {
+            width: 70px;
+            height: 70px;
+            margin-right: 20px;
+            border-radius: 50%;
+            box-shadow: inset rgba(255,255,255,0.2) 8px  8px 18px 5px,
+            inset rgba(0,0,0,0.5) -8px -8px 18px 5px;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+
+        .rc-empty {
+            background: repeating-linear-gradient(
+                            -45deg,
+                            #B5B5B5,
+                            #B5B5B5 10px,
+                            #fff 10px,
+                            #fff 20px
+            );
+        }
+        .rc-color-1 {
+            background-color: $color-blue-light;
+        }
+        .rc-color-2 {
+            background-color: $color-blue;
+        }
+        .rc-color-3 {
+            background-color: $color-blue-dark;
+        }
+        .rc-color-4 {
+            background-color: $color-red-dark;
+        }
+        .rc-color-5 {
+            background-color: $color-green;
+        }
+        .rc-color-6 {
+            background-color: $color-green-dark;
+        }
+        .rc-color-7 {
+            background-color: $color-olive;
+        }
+        .rc-color-8 {
+            background-color: $color-pink-light;
+        }
+        .rc-color-9 {
+            background-color: $color-pink;
+        }
+        .rc-color-10 {
+            background-color: $color-violet;
+        }
+        .rc-color-11 {
+            background-color: $color-red;
+        }
+        .rc-color-12 {
+            background-color: $color-beige;
+        }
+        .rc-color-13 {
+            background-color: $color-yellow-dark;
+        }
+        .rc-color-14 {
+            background-color: $color-orange;
+        }
+        .rc-color-15 {
+            background-color: $color-brown;
+        }
+        .rc-color-16 {
+            background-color: $color-brown-dark;
+        }
+        .rc-color-17 {
+            background-color: $color-weight;
+        }
+        .rc-color-18 {
+            background-color: $color-grey-light;
+        }
+        .rc-color-19 {
+            background-color: $color-grey;
+        }
+        .rc-color-20 {
+            background-color: $color-black;
+        }
+    }
+}
+
+.rc-time {
+    text-align: center;
+    font-style: italic;
+    font-size: 72px;
+    margin-bottom: 70px;
+}
+
+.rc-start {
+    text-align: center;
+    margin-bottom: 70px;
+
+    .start-btn {
+        outline-width: 0;
+        box-shadow:inset 0px 1px 0px 0px #bee2f9;
+        background:linear-gradient(to bottom, #63b8ee 5%, #468ccf 100%);
+        border-radius: 12px;
+        border:1px solid #3866a3;
+        display:inline-block;
+        cursor:pointer;
+        color:#14396a;
+        font-family:Arial;
+        font-size: 24px;
+        font-weight:bold;
+        padding:20px 34px;
+        text-decoration:none;
+        text-shadow:0px 1px 0px #7cacde;
+    }
+    .start-btn:hover {
+        background: linear-gradient(to bottom, #468ccf 5%, #63b8ee 100%);
+    }
+    .start-btn:active {
+        position:relative;
+        top:1px;
+    }
+
+}

@@ -1,5 +1,5 @@
 
-@import "part/global/grid/foundation";
+@import "part/global/normalize";
 @import "part/global/common";
 
 @import "part/elements/variables";
@@ -11,12 +11,6 @@
 @import "part/elements/select";
 
 @import "part/style";
-
-@import "../templates/header/header";
-@import "../templates/cakes/cakes";
-@import "../templates/dishes/dishes";
-@import "../templates/menu/menu";
-@import "../templates/footer/footer";
 
 @import "part/media";
 
