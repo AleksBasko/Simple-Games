@@ -1,0 +1,28 @@
+@media only screen and (min-width: 1366px) {
+
+    body {
+        overflow-x: hidden;
+    }
+}
+
+@media only screen and (min-width: 1700px) {
+
+    .container-wide {
+        padding-left: 50px;
+        padding-right: 160px;
+    }
+
+    .container-medium {
+        padding-left: 195px;
+        padding-right: 310px;
+    }
+
+    .container-narrow {
+        padding-left: 275px;
+        padding-right: 310px;
+    }
+
+    .content {
+        padding: 0 80px 0 115px;
+    }
+}

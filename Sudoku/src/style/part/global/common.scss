@@ -1,0 +1,31 @@
+.text-right {
+    text-align: right;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.opacity_hidden {
+    opacity: 0;
+}
+
+.opacity_show {
+    opacity: 1;
+}
+
+.is-visible {
+    display: block !important;
+}
+
+.is-hidden {
+    display: none !important;
+}
+
+.flex-around {
+    display: flex;
+    justify-content: space-around;
+}
+.v-center {
+    align-items: center;
+}
