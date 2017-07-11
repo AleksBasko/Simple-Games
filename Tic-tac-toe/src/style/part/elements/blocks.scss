@@ -1,0 +1,26 @@
+.sg-container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.sg-block {
+}
+
+.sg-row {
+    display: flex;
+    justify-content: space-between;
+    width: 360px;
+}
+
+.sg-squer {
+    display: flex;
+    flex-wrap: wrap;
+    width: 120px;
+
+}
+
+.sg-item {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #444;
+}
