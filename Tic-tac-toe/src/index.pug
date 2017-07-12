@@ -13,16 +13,20 @@ html
     body
         section
             .sg-container
-                .sg-block
-                    .tic-item(data-value='0' data-row='0' data-col='0')
-                    .tic-item(data-value='1' data-row='0' data-col='1')
-                    .tic-item(data-value='2' data-row='0' data-col='2')
-                    .tic-item(data-value='3' data-row='1' data-col='0')
-                    .tic-item(data-value='4' data-row='1' data-col='1')
-                    .tic-item(data-value='5' data-row='1' data-col='2')
-                    .tic-item(data-value='6' data-row='2' data-col='0')
-                    .tic-item(data-value='7' data-row='2' data-col='1')
-                    .tic-item(data-value='8' data-row='2' data-col='2')
+                input(type="radio" name='name' data-value='0' checked).select
+                label first
+                input(type="radio" name='name' data-value='1').select
+                label second
+                .block
+                    .tic-item(data-value='0')
+                    .tic-item(data-value='1')
+                    .tic-item(data-value='2')
+                    .tic-item(data-value='3')
+                    .tic-item(data-value='4')
+                    .tic-item(data-value='5')
+                    .tic-item(data-value='6')
+                    .tic-item(data-value='7')
+                    .tic-item(data-value='8')
 
 
 
