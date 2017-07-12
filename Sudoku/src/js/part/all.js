@@ -112,28 +112,110 @@ $(document).ready(function () {
         // }
 
 
-        var row = [];
-        var count = 10;
+
+        var row0 = [];
+        var row1 = [];
+        var row2 = [];
+        var row3 = [];
+        var row4 = [];
+        var row5 = [];
+        var row6 = [];
+        var row7 = [];
+        var row8 = [];
+        var col0 = [];
+        var col1 = [];
+        var col2 = [];
+        var col3 = [];
+        var col4 = [];
+        var col5 = [];
+        var col6 = [];
+        var col7 = [];
+        var col8 = [];
+        var count = 9;
 
         function getRandomArbitary(min, max) {
             return Math.random() * (max - min) + min;
         }
 
-        function searchRandom() {
-            var rdm = Math.floor(getRandomArbitary(1, 20));
+        function searchRandom(arr, a, i) {
+            var rdm = Math.floor(getRandomArbitary(0, arr.length));
 
-            if (row.includes(rdm)) {
-                searchRandom();
-            } else {
-                row.push(rdm);
+            var simple = arr[rdm];
+
+            a.push(simple);
+
+            arr.splice(rdm, 1);
+
+            if (i == 0){
+                col0.push(simple);
+            }
+            else if (i == 1){
+                col1.push(simple);
+            }
+            else if (i == 2){
+                col2.push(simple);
+            }
+            else if (i == 3){
+                col3.push(simple);
+            }
+            else if (i == 4){
+                col4.push(simple);
+            }
+            else if (i == 5){
+                col5.push(simple);
+            }
+            else if (i == 6){
+                col6.push(simple);
+            }
+            else if (i == 7){
+                col7.push(simple);
+            }
+            else if (i == 8){
+                col8.push(simple);
             }
         }
 
-        for (var i = 0; i < count; i++) {
-            searchRandom();
+        function rows(a) {
+            var arr = [1,2,3,4,5,6,7,8,9];
+
+            for (var i = 0; i < count; i++) {
+                searchRandom(arr, a, i);
+            }
         }
 
-        console.log(row);
+        rows(row0);
+        rows(row1);
+        rows(row2);
+        rows(row3);
+        rows(row4);
+        rows(row5);
+        rows(row6);
+        rows(row7);
+        rows(row8);
+
+
+
+
+
+
+        console.log('новый массив ' + row0);
+        console.log('новый массив ' + row1);
+        console.log('новый массив ' + row2);
+        console.log('новый массив ' + row3);
+        console.log('новый массив ' + row4);
+        console.log('новый массив ' + row5);
+        console.log('новый массив ' + row6);
+        console.log('новый массив ' + row7);
+        console.log('новый массив ' + row8);
+        console.log('новый col0 ' + col0);
+        console.log('новый col1 ' + col1);
+        console.log('новый col2 ' + col2);
+        console.log('новый col3 ' + col3);
+        console.log('новый col4 ' + col4);
+        console.log('новый col5 ' + col5);
+        console.log('новый col6 ' + col6);
+        console.log('новый col7 ' + col7);
+        console.log('новый col8 ' + col8);
 
     }
 

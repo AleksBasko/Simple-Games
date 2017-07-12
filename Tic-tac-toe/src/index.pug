@@ -13,11 +13,11 @@ html
     body
         section
             .sg-container
-                input(type="radio" name='name' data-value='0' checked).select
+                input(type="radio" name='name' data-value='0' )#first.select
                 label first
-                input(type="radio" name='name' data-value='1').select
+                input(type="radio" name='name' data-value='1' checked)#second.select
                 label second
-                .block
+                .tt-block
                     .tic-item(data-value='0')
                     .tic-item(data-value='1')
                     .tic-item(data-value='2')
@@ -27,6 +27,8 @@ html
                     .tic-item(data-value='6')
                     .tic-item(data-value='7')
                     .tic-item(data-value='8')
+            canvas#canvas
+            canvas#example
 
 
 

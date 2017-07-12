@@ -1,241 +1,155 @@
-// $(document).ready(function(){
-//     var arr = [0,1,2,3,4,5,6,7,8];
-//     var arr2 = [0,1,2,3,4,5,6,7,8];
-//     var row0 = [];
-//     var row1 = [];
-//     var row2 = [];
-//     var col0 = [];
-//     var col1 = [];
-//     var col2 = [];
-//     var dia0 = [];
-//     var dia1 = [];
-//     var sel = '0';
-//     // select(sel);
-//     click(row0, row1, row2, col0, col1, col2, dia0, dia1, arr, arr2);
-//     // console.log(arr);
-//     // console.log(arr.length);
-//
+$(document).ready(function(){
+
+    var arr = [0,1,2,3,4,5,6,7,8];
+    var arr2 = [0,1,2,3,4,5,6,7,8];
+    var tex = '+';
+    click(arr2, tex, arr);
+
+});
+
+
+function click(a, b, c) {
+
+    $('.tic-item').click(function(){
+        if (!$(this).hasClass('full')) {
+
+            var val = $(this).data( "value" );
+            console.log('нажали на ' + val);
+
+            for (var i = 0; i < a.length; i++) {
+                if(a[i] == val) {
+                    console.log('удалили ' + a[i]);
+                    a.splice(i, 1);
+                    break;
+                }
+            }
+
+            // var index = a.indexOf(val);
+            //
+            // if(index !==-1){
+            //     a.splice(index,1);
+            // }
+            console.log('теперь массив ' + a);
+        }
+
+        $(this).addClass('full');
+        $(this).text(b);
+        another(a, c);
+    });
+}
+
+
+
+function another(freeArray, bb) {
+    var rdm = Math.floor(getRandomArbitary(0, freeArray.length));
+    console.log(freeArray);
+    // console.log(rdm);
+
+    var ds = freeArray[rdm];
+    console.log('ds ' + ds);
+
+    var item = $('.tic-item');
+    // console.log(item);
+
+    item.each(function() {
+        var val = $(this).data( "value" );
+        if(val == ds) {
+            $(this).text('0');
+            console.log('val ' + val);
+            var index = freeArray.indexOf(val);
+
+            if(index !==-1){
+                freeArray.splice(index,1);
+            }
+        }
+    });
+
+}
+
+
+function getRandomArbitary(min, max) {
+    return Math.random() * (max - min) + min;
+}
+
+// $(document).ready(function() {
+//     $('.select').each(function() {
+//         if ($(this).is(':checked')) {
+//             console.log($(this).data('value'));
+//             $(this).addClass('active');
+//         }
+//     })
+//     $('.select').click(function() {
+//         if (!$(this).hasClass('active')) {
+//             console.log('Меняем ' + $(this).data('value'));
+//             $('.select').removeClass('active');
+//             $(this).addClass('active');
+//         }
+//     })
 // });
+
+$(document).ready(function() {
+    // var canvas = document.createElement('canvas');
+    //
+    // canvas.id = "CursorLayer";
+    // canvas.width = 500;
+    // canvas.height = 600;
+    // canvas.style.zIndex = 8;
+    // canvas.style.position = "absolute";
+    // canvas.style.border = "1px solid";
+    // canvas.style.backgroundColor = "grey";
+    //
+    //
+    // var body = document.getElementsByTagName("body")[0];
+    // body.appendChild(canvas);
+    //
+    // cursorLayer = document.getElementById("CursorLayer");
+    //
+    // console.log(cursorLayer);
+
+    var c_canvas = document.getElementById("canvas");
+
+    var context = c_canvas.getContext("2d");
+
+        c_canvas.width = 90;
+        c_canvas.height = 90;
+
+        for (var x = 0.5; x < 90; x += 30) {
+            context.moveTo(x, 0);
+            context.lineTo(x, 90);
+        }
+
+        for (var y = 0.5; y < 90; y += 30) {
+            context.moveTo(0, y);
+            context.lineTo(90, y);
+        }
+
+    context.strokeStyle = "#888";
+    context.stroke();
+});
+
+var example = document.getElementById("example"),
+    ctx     = example.getContext('2d');
+example.width  = 640;
+example.height = 480;
+ctx.strokeRect(15, 15, 266, 266);
+ctx.strokeRect(18, 18, 260, 260);
+ctx.fillRect(20, 20, 256, 256);
+for ( var i = 0; i < 8; i += 2) {
+    for (var j = 0; j < 8; j += 2) {
+        ctx.clearRect(20 + i * 32, 20 + j * 32, 32, 32);
+        ctx.clearRect(20 + (i + 1) * 32, 20 + (j + 1) * 32, 32, 32);
+    }
+}
+
+
+
+// function draw() {
+//     var canvas = document.getElementById('canvas');
+//     if (canvas.getContext) {
+//         var ctx = canvas.getContext('2d');
 //
-// // function select(a) {
-// //     $('.select').click(function() {
-// //
-// //         a = $(this).data('value');
-// //         console.log(a);
-// //
-// //
-// //         click(row0, row1, row2, col0, col1, col2, dia0, dia1, sel);
-// //
-// //     });
-// //
-// // }
-//
-// function click(row0, row1, row2, col0, col1, col2, dia0, dia1, arr, arr2) {
-//
-//     $('.tic-item').click(function(){
-//         if (!$(this).hasClass('full')) {
-//             var sel = '+';
-//             $(this).addClass('full');
-//             var val = $(this).data( "value" );
-//             console.log('нажали на ' + val);
-//             // debugger;
-//             console.log('был массив ' + arr2.length);
-//             for (var i = 0; i < arr2.length; i++) {
-//                 if(arr2[i] == val) {
-//                     console.log('удалили ' + arr2[i]);
-//                     arr2.splice(arr2[i], 1);
-//                     break;
-//                 }
-//             }
-//             console.log('теперь массив ' + arr2.length);
-//
-//             // console.log('arr2 ' + arr2);
-//             // console.log('arr2-length ' + arr2.length);
-//
-//             if(val == 0) {
-//                 $(this).text(sel);
-//                 row0.push('1');
-//                 col0.push('1');
-//                 dia0.push('1');
-//                 win(row0);
-//                 win(col0);
-//                 win(dia0);
-//
-//             }
-//             else if(val == 1) {
-//                 $(this).text(sel);
-//                 row0.push('1');
-//                 col1.push('1');
-//                 win(row0);
-//                 win(col1);
-//             }
-//             else if(val == 2) {
-//                 $(this).text(sel);
-//                 row0.push('1');
-//                 col2.push('1');
-//                 dia1.push('1');
-//                 win(row0);
-//                 win(col2);
-//                 win(dia1);
-//             }
-//             else if(val == 3) {
-//                 $(this).text(sel);
-//                 row1.push('1');
-//                 col0.push('1');
-//                 win(row1);
-//                 win(col0);
-//             }
-//             else if(val == 4) {
-//                 $(this).text(sel);
-//                 row1.push('1');
-//                 col1.push('1');
-//                 dia0.push('1');
-//                 dia1.push('1');
-//                 win(row1);
-//                 win(col1);
-//                 win(dia0);
-//                 win(dia1);
-//             }
-//             else if(val == 5) {
-//                 $(this).text(sel);
-//                 row1.push('1');
-//                 col2.push('1');
-//                 win(row1);
-//                 win(col2);
-//             }
-//             else if(val == 6) {
-//                 $(this).text(sel);
-//                 row2.push('1');
-//                 col0.push('1');
-//                 dia1.push('1');
-//                 win(row2);
-//                 win(col0);
-//                 win(dia1);
-//             }
-//             else if(val == 7) {
-//                 $(this).text(sel);
-//                 row2.push('1');
-//                 col1.push('1');
-//                 win(row2);
-//                 win(col1);
-//             }
-//             else if(val == 8) {
-//                 $(this).text(sel);
-//                 row2.push('1');
-//                 col2.push('1');
-//                 dia0.push('1');
-//                 win(row2);
-//                 win(col2);
-//                 win(dia0);
-//             }
-//         }
-//         another(arr2, arr);
-//         function another(a, b) {
-//             var rdm = Math.floor(getRandomArbitary(0, a.length));
-//             var ds = a[rdm];
-//             // console.log('random ' + rdm);
-//             // console.log('arr2 leng ' + a.length);
-//             // console.log( 'число из rr2 ' + a[rdm]);
-//             // console.log(b[ds]);
-//         }
-//     });
-// }
-//
-// function getRandomArbitary(min, max) {
-//     return Math.random() * (max - min) + min;
-// }
-//
-// function win(a) {
-//     if(a.length == 3) {
-//         // console.log('win');
+//         ctx.fillRect(25,25,100,100);
+//         ctx.clearRect(45,45,60,60);
+//         ctx.strokeRect(50,50,50,50);
 //     }
 // }
-
-// $(document).ready(function(){
-//
-//     var arr2 = ['0','1','2','3','4','5','6','7','8'];
-//     click(arr2);
-// });
-//
-//
-// function click(arr2) {
-//
-//     $('.tic-item').click(function(){
-//         // debugger;
-//         if (!$(this).hasClass('full')) {
-//             var val = $(this).data( "value" );
-//             console.log('нажали на ' + val);
-//             console.log('был массив ' + arr2.length);
-//             for (var i = 0; i < arr2.length; i++) {
-//                 var set = arr2[i];
-//                 if(set == val) {
-//                     console.log('удалили ' + arr2[i]);
-//                     arr2.splice(arr2[i], 1);
-//                     $(this).text('+');
-//                     break;
-//                 }
-//             }
-//             console.log('массив ' + arr2);
-//
-//         }
-//
-//     });
-// }
-
-
-// var index = arr.indexOf(val); if(index !==-1){ arr.splice(index,1);}
-    $(document).ready(function(){
-        var arr = ['0','1','2','3','4','5','6','7'];
-        click(arr);
-    });
-
-
-    function click(arr) {
-        $('.tic-item').click(function(){
-            if (!$(this).hasClass('clicked')) {
-                var val = $(this).data( "value" );
-                console.log('нажали на ' + val);
-                var art = arr.indexOf(val);
-
-                arr.splice(arr[art], 1);
-                console.log('массив ' + arr);
-            }
-        });
-    }
-
-
-
-// Your indexing using the data attribues is broken as soon as you remove an element from array
-// Your indexing using the data attribues is broken as soon as you remove an element from array. Find the index in the array first
-// Your indexing using the data attribues is broken as soon as you remove an element from array. Find the index in the array first. If you remove index 2 ... what was 3 becomes 2
-
-
-
-
-    $(document).ready(function(){
-
-        $('.select').each(function(){
-            if($(this).is('checked')) {
-                className = $(this).data('value');
-            }
-        });
-
-        addBlock(className);
-        select();
-    });
-
-    function select() {
-        $('.select').click(function() {
-
-            if(!$(this).prop('checked')) {
-
-                className = $(this).data('value');
-                addBlock(className);
-                console.log('click');
-            }
-        });
-    }
-
-    function addBlock(a) {
-        $('.block').html('<div class="' + a + '"></div>')
-    }
