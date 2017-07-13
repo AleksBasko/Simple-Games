@@ -15,3 +15,47 @@
         cursor: default;
     }
 }
+
+.tic {
+    width: 100px;
+    height: 100px;
+
+    circle {
+        box-sizing: border-box;
+        stroke: green;
+        stroke-width: 7px;
+        fill: transparent;
+        stroke-dasharray: 180;
+        animation: show 1s;
+    }
+}
+
+@-webkit-keyframes show {
+    from {
+        stroke-dashoffset: 280;
+    }
+
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.tac {
+    width: 500px;
+    height:150px;
+line {
+    stroke-dasharray:  450;
+    animation: showLine 5s;
+}
+
+}
+
+@-webkit-keyframes showLine {
+    from {
+        stroke-dashoffset: 450;
+    }
+
+    to {
+        stroke-dashoffset: 0;
+    }
+}
