@@ -296,7 +296,7 @@
 // // //     .sg-item
 // // //     .sg-item
 // // //     .sg-item
-//
+
 // $(document).ready(function(){
 //    var arr = [1,2,3,4,5,6,7,8,9];
 //    var arr2 = [1,2,3,4,5,6,7,8,9];
@@ -413,13 +413,24 @@ $(document).ready(function(){
     var arr = [1,2,3,4,5,6,7,8,9];
     var arr2 = [1,2,3,4,5,6,7,8,9];
     var arr3 = [1,2,3,4,5,6,7,8,9];
+    var arr4 = [1,2,3,4,5,6,7,8,9];
+    var arr5 = [1,2,3,4,5,6,7,8,9];
+    var arr6 = [1,2,3,4,5,6,7,8,9];
+    var arr7 = [1,2,3,4,5,6,7,8,9];
+    var arr8 = [1,2,3,4,5,6,7,8,9];
+    var arr9 = [1,2,3,4,5,6,7,8,9];
 
     function getRandomArbitary(min, max) {
         return Math.random() * (max - min) + min;
     }
 
+    // var first = Math.floor(getRandomArbitary(1, 9));
+    //
+    // var firstIndex = arr.indexOf(first);
+    //
+    // arr.splice(firstIndex, 1);
+
     var row_1 = [];
-    var row_3 = [];
 
     for(var i=0; i < 9; i++){
         var rmd = Math.floor(getRandomArbitary(0, arr.length));
@@ -429,56 +440,79 @@ $(document).ready(function(){
     }
 
     var row_2 = [];
+    var row_3 = [];
+    var row_4 = [];
+    var row_5 = [];
+    var row_6 = [];
+    var row_7 = [];
+    var row_8 = [];
+    var row_9 = [];
 
-
-    function rowPoint(point, array, row_2) {
-
-        console.log('row-array   ' + row_1);
-        console.log('arr2   ' + arr2);
-        // console.log('row_1.length ' + row_1.length);
-
-        for(var j=point; j <row_1.length; j+=10) {
-            console.log('j ' + j);
-            var points = point;
-            console.log('points  ' + points);
-
-            var firstRow = row_1[points];
-            console.log('row_1   ' + firstRow);
-            var index = array.indexOf(firstRow);
-            console.log('array.indexOf   ' + index);
-
-            if(index !==-1){
-                array.splice(index, 1);
-                console.log('array после удаления ' + array)
-                var rmd = Math.floor(getRandomArbitary(0, array.length));
-                row_1.push(array[rmd]);
-                row_2.push(array[rmd]);
-                array.splice(rmd, 1);
-                array.push(firstRow);
-            }
-            else {
-                var rmd1 = Math.floor(getRandomArbitary(0, array.length));
-                row_1.push(array[rmd1]);
-                row_2.push(array[rmd1]);
-                array.splice(rmd1, 1);
-            }
+    function rowPoint(row, point, array) {
+        var firstRow = row_1[point];
+        var index = array.indexOf(firstRow);
+        if(index !==-1){
+            array.splice(index, 1);
+            var rmd = Math.floor(getRandomArbitary(0, array.length));
+            row.push(array[rmd]);
+            array.splice(rmd, 1);
+            array.push(firstRow);
         }
-
+        else {
+            var rmd1 = Math.floor(getRandomArbitary(0, array.length));
+            row.push(array[rmd1]);
+            array.splice(rmd1, 1);
+        }
+    }
+    function rowPoint2(row, point, array) {
+        var firstRow = row_1[point];
+        var firstRow2 = row_2[point];
+        var index = array.indexOf(firstRow);
+        var index2 = array.indexOf(firstRow2);
+        if(index !==-1 || index2 !==-1){
+            array.splice(index, 1);
+            var rmd = Math.floor(getRandomArbitary(0, array.length));
+            row.push(array[rmd]);
+            array.splice(rmd, 1);
+            array.push(firstRow);
+        }
+        else if(index !==-1 || index2 !==-1){
+            array.splice(index, 1);
+            var rmd = Math.floor(getRandomArbitary(0, array.length));
+            row.push(array[rmd]);
+            array.splice(rmd, 1);
+            array.push(firstRow);
+        }
+        else if(index !==-1 || index2 !==-1){
+            array.splice(index, 1);
+            var rmd = Math.floor(getRandomArbitary(0, array.length));
+            row.push(array[rmd]);
+            array.splice(rmd, 1);
+            array.push(firstRow);
+        }
+        else {
+            var rmd1 = Math.floor(getRandomArbitary(0, array.length));
+            row.push(array[rmd1]);
+            array.splice(rmd1, 1);
+        }
     }
 
 
-
     for(var i=0; i<9; i++){
-        console.log('i передали ' + i);
-        rowPoint(i, arr2, row_2);
+        rowPoint(row_2, i, arr2);
     }
     for(var i=0; i<9; i++){
-        console.log('i передали ' + i);
-        rowPoint(i, arr3, row_3);
+        rowPoint2(row_3, i, arr3);
     }
 
     console.log('rowA ' + row_1);
     console.log('rowB ' + row_2);
     console.log('rowB ' + row_3);
+    console.log('rowB ' + row_4);
+    console.log('rowB ' + row_5);
+    console.log('rowB ' + row_6);
+    console.log('rowB ' + row_7);
+    console.log('rowB ' + row_8);
+    console.log('rowB ' + row_9);
 
 });
