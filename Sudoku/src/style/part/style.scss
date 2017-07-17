@@ -1,27 +1,60 @@
-.sg-container {
+.sd-container {
     display: flex;
     justify-content: space-between;
     width: 80%;
     margin: 50px auto;
 }
 
-.sg-block,
-.sg-block1 {
+.sd-block {
     display: flex;
     flex-wrap: wrap;
-    width: 452px;
-    border: 1px solid #899599;
+    width: 454px;
+    border: 2px solid #5d91a5;
+    margin: 0 auto;
+    cursor: pointer;
 }
 
-.sg-item {
+.sd-hidden {
+    opacity: 0;
+}
+
+.sd-item {
     width: 50px;
     height: 50px;
     font-size: 20px;
     line-height: 50px;
     text-align: center;
-    border: 1px solid #899599;
+    border: 1px solid #7babbb;
+    transition: all .2s;
+
+    &:hover {
+        border-color: #f1791c;
+        background-color: rgba(245, 222, 179, 0.23);
+    }
 }
 
-.sg-block1 {
-    background-color: lightskyblue;
+.is-empty {
+    background-color: rgba(93, 202, 195, 0.11);
+}
+.sd-picker {
+    display: flex;
+    flex-wrap: wrap;
+    width: 215px;
+    padding: 10px;
+
+    .sd-picker-item {
+        width: 35px;
+        height: 35px;
+        margin: 0 4px 4px 0;
+        border: 1px solid red;
+        cursor: pointer;
+        text-align: center;
+        line-height: 33px;
+        font-weight: bold;
+        transition: all .2s;
+
+        &:hover {
+            background-color: lightskyblue;
+        }
+    }
 }

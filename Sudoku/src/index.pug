@@ -1,23 +1,16 @@
-doctype html
-html
+extends templates/layout/main-layout.pug
 
-    head
-        meta(charset="UTF-8")
-        title Link
-        link(rel="shortcut icon" href="img/favicon.jpg" type="image/jpg")
-        meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
-        meta(name="keywords" content="")
-        meta(name="description" content="")
-        link(rel="stylesheet" type="text/css" href="css/main.css")
-
-    body
-        section
-            .sg-container
-                .sg-block1
-                .sg-block
-
-
-
-
-
-script(src='/js/main.js')
+block content
+    section
+        .sd-container
+            .sd-block.sd-hidden
+            .sd-picker
+                .sd-picker-item 1
+                .sd-picker-item 2
+                .sd-picker-item 3
+                .sd-picker-item 4
+                .sd-picker-item 5
+                .sd-picker-item 6
+                .sd-picker-item 7
+                .sd-picker-item 8
+                .sd-picker-item 9
