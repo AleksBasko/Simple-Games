@@ -153,8 +153,29 @@ $(document).ready(function() {
     function showGame() {
         $('.sd-block').removeClass('sd-hidden');
     }
+    function showPicker() {
+        $('.sd-item').click(function() {
+            $(this).addClass('sd-item--active');
+            $(this).append('<div class="sd-picker"><div class="sd-picker-item" data-value="1">1</div><div class="sd-picker-item" data-value="2">2</div><div class="sd-picker-item" data-value="3">3</div><div class="sd-picker-item" data-value="4">4</div><div class="sd-picker-item" data-value="5">5</div><div class="sd-picker-item" data-value="6">6</div><div class="sd-picker-item" data-value="7">7</div><div class="sd-picker-item" data-value="8">8</div><div class="sd-picker-item" data-value="9">9</div></div>');
+            clickPicker();
+        });
+    }
+    function clickPicker() {
+        $('.sd-picker-item').click(function(e) {
+            e.preventDefault();
+            var val = $(this).data('value');
+            var parn = $(this).parents('.sd-item');
+
+            parn.text(val);
+            parn.removeClass('is-empty sd-item--active');
+            parn.remove('.sd-picker');
+
+
+        });
+    }
     addItem();
     showGame();
+    showPicker();
 
 
 
