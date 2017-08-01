@@ -1,16 +1,17 @@
 .tt-block {
     display: flex;
     flex-wrap: wrap;
-    width: 90px;
+    width: 210px;
 }
 .tic-item {
-    width: 30px;
-    height: 30px;
+    width: 70px;
+    height: 70px;
     border: 1px solid lightgrey;
-    line-height: 30px;
+    line-height: 70px;
     text-align: center;
     font-size: 20px;
     cursor: pointer;
+    overflow: hidden;
     &.full {
         cursor: default;
     }
@@ -23,16 +24,34 @@
     circle {
         box-sizing: border-box;
         stroke: green;
-        stroke-width: 7px;
+        stroke-width: 5px;
         fill: transparent;
         stroke-dasharray: 180;
         animation: show 1s;
     }
 }
 
+.tac {
+    stroke: green;
+    stroke-width: 10px;
+    fill: transparent;
+
+    path:first-child {
+        stroke-dasharray: 150;
+        animation: showLine 0.5s;
+    }
+
+    path:last-child {
+        stroke-dasharray: 150;
+        animation-delay: .5s;
+        animation: showLine .5s;
+    }
+
+}
+
 @-webkit-keyframes show {
     from {
-        stroke-dashoffset: 280;
+        stroke-dashoffset: 180;
     }
 
     to {
@@ -40,19 +59,9 @@
     }
 }
 
-.tac {
-    width: 500px;
-    height:150px;
-line {
-    stroke-dasharray:  450;
-    animation: showLine 5s;
-}
-
-}
-
 @-webkit-keyframes showLine {
     from {
-        stroke-dashoffset: 450;
+        stroke-dashoffset: 150;
     }
 
     to {
