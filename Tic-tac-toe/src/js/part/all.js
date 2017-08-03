@@ -8,11 +8,13 @@ window.onload = function() {
     let itemClass = 'tic-item';
     let endClass = 'tt-end';
     let endActive = 'tt-end--active';
+    let restartClass = 'tt-btn-restart';
     let checkFirstP = [[], [], [], [], [], [], [], []];
     let checkSecondP = [[], [], [], [], [], [], [], []];
     let checkPoint = false;
 
     stepFirst(arr, firstP);
+    restart();
 
     function stepFirst(array) {
         if(array.length) {
@@ -133,6 +135,14 @@ window.onload = function() {
         for (let item of itemsEnd) {
             item.classList.add(endActive);
             item.innerHTML = text;
+        }
+    }
+    function restart() {
+        let restartBtn = document.getElementsByClassName(restartClass);
+        for (let item of restartBtn) {
+            item.addEventListener('click', function() {
+                window.location.reload();
+            });
         }
     }
 };
